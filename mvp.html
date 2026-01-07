@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Community App (MVP) - Quotation</title>
+  <style>
+    :root{
+      --bg1:#ecfeff;--bg2:#eff6ff;--bg3:#f0fdf4;
+      --card:#ffffff;--text:#0f172a;--muted:#475569;
+      --primary:#0ea5e9;--primary2:#22c55e;
+      --border:#e2e8f0;--shadow:0 12px 30px rgba(2,6,23,.08);
+      --warn:#f59e0b;--danger:#ef4444;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));}
+    .container{max-width:1100px;margin:0 auto;padding:20px;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px;}
+    .stack{display:flex;flex-direction:column;gap:16px;}
+    .row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+    h1{margin:0;font-size:28px;line-height:1.2}
+    h2{margin:0;font-size:20px}
+    .gradient-title{background:linear-gradient(90deg,var(--primary),var(--primary2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .sub{margin:8px 0 0;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:#fff}
+    .pill a{color:inherit;text-decoration:none;font-weight:800}
+    .muted{color:var(--muted)}
+    .small{font-size:12px}
+
+    .banner{border:none;background:linear-gradient(90deg,#0ea5e9,#22c55e);color:#fff}
+    .banner .muted{color:rgba(255,255,255,.9)}
+
+    .grid{display:grid;gap:12px}
+    @media (min-width: 800px){
+      .grid.cols-2{grid-template-columns:1fr 1fr}
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    }
+
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+    .stat{border-radius:14px;padding:16px;color:#fff}
+    .stat.blue{background:linear-gradient(135deg,#0ea5e9,#2563eb)}
+    .stat.green{background:linear-gradient(135deg,#22c55e,#16a34a)}
+    .stat strong{display:block;font-size:26px;margin-top:4px}
+
+    table{width:100%;border-collapse:collapse}
+    td,th{padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+    th{text-align:left;font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+
+    .tag{display:inline-block;font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#f8fafc}
+    .tag.warn{background:#fff7ed;border-color:#fed7aa;color:#9a3412}
+    .tag.danger{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+    .tag.ok{background:#ecfdf5;border-color:#bbf7d0;color:#166534}
+
+    .cta{border:none;background:linear-gradient(90deg,#0f172a,#111827);color:#fff;text-align:center}
+    .cta button{cursor:pointer;border:none;border-radius:12px;background:#fff;color:#0f172a;padding:12px 16px;font-weight:800}
+    .cta button:hover{background:#f1f5f9}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="stack">
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <h1 class="gradient-title">Simple Community App (MVP)</h1>
+            <div class="sub"><strong>Lower Scale • Lower Budget • Faster Delivery</strong></div>
+            <div class="sub">A lean version focused on core features with clear restrictions.</div>
+          </div>
+          <div class="pill">
+            <div>
+              <div class="small muted">Date</div>
+              <div id="today" style="font-weight:800"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <div class="pill"><a href="index.html">View Full Platform Quotation</a></div>
+          <div class="pill"><span class="small muted">Target:</span><strong>0–5K users</strong></div>
+          <div class="pill"><span class="small muted">Timeline:</span><strong>6–10 weeks</strong></div>
+        </div>
+      </div>
+
+      <div class="card banner">
+        <div class="row" style="align-items:center">
+          <div style="min-width:280px">
+            <h2 style="margin:0">MVP Approach</h2>
+            <div class="muted" style="margin-top:8px">
+              We reduce complexity by limiting algorithms, media processing, and real-time systems.
+            </div>
+          </div>
+          <div class="grid cols-2" style="flex:1">
+            <div class="pill" style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.2);color:#fff">
+              <div><strong>Ship faster</strong><div class="small" style="opacity:.9">Core features only</div></div>
+            </div>
+            <div class="pill" style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.2);color:#fff">
+              <div><strong>Lower cost</strong><div class="small" style="opacity:.9">Simpler infra + fewer modules</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Features Included (MVP)</h2>
+          <span class="tag ok">Included</span>
+        </div>
+        <div class="grid cols-3" style="margin-top:12px">
+          <div class="pill"><div><strong>Login</strong><div class="small muted">Email/phone OTP</div></div></div>
+          <div class="pill"><div><strong>Profiles</strong><div class="small muted">Basic profile + edit</div></div></div>
+          <div class="pill"><div><strong>Posts</strong><div class="small muted">Text + single image</div></div></div>
+          <div class="pill"><div><strong>Feed</strong><div class="small muted">Chronological only</div></div></div>
+          <div class="pill"><div><strong>Likes</strong><div class="small muted">Like/unlike</div></div></div>
+          <div class="pill"><div><strong>Comments</strong><div class="small muted">Basic comments</div></div></div>
+          <div class="pill"><div><strong>Follow</strong><div class="small muted">Follow/unfollow</div></div></div>
+          <div class="pill"><div><strong>Admin</strong><div class="small muted">Basic user/post management</div></div></div>
+          <div class="pill"><div><strong>Reports</strong><div class="small muted">User report + manual review</div></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Restrictions (To Keep Budget Low)</h2>
+          <span class="tag warn">Restricted</span>
+        </div>
+        <table style="margin-top:10px">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Restriction</th>
+              <th style="width:170px">Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Algorithmic Feed</strong></td>
+              <td>No ML recommendations. Only latest-first feed.</td>
+              <td><span class="tag ok">Huge time saver</span></td>
+            </tr>
+            <tr>
+              <td><strong>Media</strong></td>
+              <td>Single image per post, size limit, no video, no heavy transformations.</td>
+              <td><span class="tag ok">Lower infra</span></td>
+            </tr>
+            <tr>
+              <td><strong>Real-time</strong></td>
+              <td>No chat, no presence, no live notifications (email only optional).</td>
+              <td><span class="tag ok">Simpler backend</span></td>
+            </tr>
+            <tr>
+              <td><strong>Search</strong></td>
+              <td>Basic search by username only (no Elasticsearch).</td>
+              <td><span class="tag ok">Less complexity</span></td>
+            </tr>
+            <tr>
+              <td><strong>Scalability</strong></td>
+              <td>Optimized for low traffic. If usage grows, we upgrade infra separately.</td>
+              <td><span class="tag warn">Scale later</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Estimated Costs (MVP)</h2>
+        </div>
+        <div class="grid cols-2" style="margin-top:12px">
+          <div class="stat blue">
+            <div class="small" style="opacity:.9">Development (Approx.)</div>
+            <strong id="dev">₹0</strong>
+            <div class="small" style="opacity:.9;margin-top:6px">Includes Android + iOS apps + basic admin panel</div>
+          </div>
+          <div class="stat green">
+            <div class="small" style="opacity:.9">Monthly Infrastructure (Approx.)</div>
+            <strong id="infra">₹0</strong>
+            <div class="small" style="opacity:.9;margin-top:6px">Low usage hosting + DB + storage</div>
+          </div>
+        </div>
+        <table style="margin-top:12px">
+          <tbody>
+            <tr>
+              <td class="muted">GST (18%)</td>
+              <td style="text-align:right" id="gst">₹0</td>
+            </tr>
+            <tr>
+              <td><strong>Total (Development + GST)</strong></td>
+              <td style="text-align:right"><strong id="total">₹0</strong></td>
+            </tr>
+            <tr>
+              <td class="muted">Year 1 Total (Dev + 12 months infra)</td>
+              <td style="text-align:right" id="year1">₹0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Suggested Next Steps</h2>
+          <span class="tag">Process</span>
+        </div>
+        <table style="margin-top:10px">
+          <tbody>
+            <tr>
+              <td><strong>Week 1</strong></td>
+              <td>Finalize MVP scope + screens + user roles.</td>
+            </tr>
+            <tr>
+              <td><strong>Weeks 2–5</strong></td>
+              <td>Build backend + database + admin + core UI.</td>
+            </tr>
+            <tr>
+              <td><strong>Weeks 6–8</strong></td>
+              <td>Testing, polish, deployment, and handover.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card cta">
+        <h2 style="margin:0 0 10px">Print / Save PDF</h2>
+        <div class="muted" style="max-width:760px;margin:0 auto 14px;color:#cbd5e1">
+          This MVP quotation is designed for a simple community app. If you need advanced features later, we upgrade in phases.
+        </div>
+        <button type="button" id="printBtn">Print / Save PDF</button>
+        <div style="margin-top:14px" class="small" id="validTill"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const fmtINR = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+
+    const baseDev = 400000;
+    const monthlyInfra = 6000;
+    const gstRate = 0.18;
+
+    const devWithGst = baseDev * (1 + gstRate);
+    const year1Total = devWithGst + (monthlyInfra * 12);
+
+    document.getElementById('today').textContent = new Date().toLocaleDateString('en-IN');
+    document.getElementById('validTill').textContent = `Quotation valid for 45 days from ${new Date().toLocaleDateString('en-IN')}`;
+
+    document.getElementById('dev').textContent = fmtINR(baseDev);
+    document.getElementById('infra').textContent = fmtINR(monthlyInfra);
+    document.getElementById('gst').textContent = fmtINR(baseDev * gstRate);
+    document.getElementById('total').textContent = fmtINR(devWithGst);
+    document.getElementById('year1').textContent = fmtINR(year1Total);
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

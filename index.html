@@ -1,0 +1,317 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Social Media Platform Development - Quotation</title>
+  <style>
+    :root{
+      --bg1:#faf5ff;--bg2:#fdf2f8;--bg3:#eff6ff;
+      --card:#ffffff;--text:#0f172a;--muted:#475569;
+      --primary:#7c3aed;--primary2:#db2777;
+      --border:#e2e8f0;--shadow:0 12px 30px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));}
+    .container{max-width:1100px;margin:0 auto;padding:20px;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px;}
+    .stack{display:flex;flex-direction:column;gap:16px;}
+    .row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+    h1{margin:0;font-size:28px;line-height:1.2}
+    .gradient-title{background:linear-gradient(90deg,var(--primary),var(--primary2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .sub{margin:8px 0 0;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:#fff}
+    .muted{color:var(--muted)}
+    .small{font-size:12px}
+
+    .warning{border:none;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff}
+    .warning .muted{color:rgba(255,255,255,.9)}
+    .grid{display:grid;gap:12px}
+    @media (min-width: 800px){.grid.cols-2{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-4{grid-template-columns:repeat(4,1fr)}}
+
+    .scale-btn{width:100%;text-align:left;padding:14px;border-radius:12px;border:2px solid var(--border);background:#fff;cursor:pointer;transition:.15s}
+    .scale-btn:hover{border-color:#cbd5e1}
+    .scale-btn.active{border-color:var(--primary);background:#f5f3ff;box-shadow:0 10px 20px rgba(124,58,237,.12)}
+
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .section-title h2{margin:0;font-size:20px}
+    .link-btn{border:none;background:transparent;color:var(--primary);cursor:pointer;font-weight:700}
+
+    .stat{border-radius:14px;padding:16px;color:#fff}
+    .stat.blue{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+    .stat.purple{background:linear-gradient(135deg,#8b5cf6,#7c3aed)}
+    .stat strong{display:block;font-size:26px;margin-top:4px}
+
+    table{width:100%;border-collapse:collapse}
+    td,th{padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+    th{text-align:left;font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+
+    .cta{border:none;background:linear-gradient(90deg,#0f172a,#111827);color:#fff;text-align:center}
+    .cta button{cursor:pointer;border:none;border-radius:12px;background:#fff;color:#0f172a;padding:12px 16px;font-weight:800}
+    .cta button:hover{background:#f1f5f9}
+
+    .hide{display:none !important}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="stack">
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <h1 class="gradient-title">Social Media Platform Development</h1>
+            <div class="sub"><strong>Millers Community Platform</strong></div>
+            <div class="sub">Instagram-style social network with advanced algorithms &amp; features</div>
+          </div>
+          <div class="pill">
+            <div>
+              <div class="small muted">Date</div>
+              <div id="today" style="font-weight:800"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <div class="pill"><a href="mvp.html" style="color:inherit;text-decoration:none;font-weight:800">View Simple App (MVP) Quotation</a></div>
+          <div class="pill"><span class="small muted">Tip:</span><strong>Use MVP first, then scale</strong></div>
+        </div>
+      </div>
+
+      <div class="card warning">
+        <div class="row" style="align-items:center">
+          <div style="min-width:260px">
+            <div style="font-size:18px;font-weight:900">Project Complexity Notice</div>
+            <div class="muted" style="margin-top:8px">Building a social media platform is a complex system (algorithms, media processing, real-time, security, scale).</div>
+          </div>
+          <div class="grid cols-2" style="flex:1">
+            <div class="pill" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:#fff">
+              <div><strong>Advanced Algorithms</strong><div class="small" style="opacity:.9">Recommendations, ranking</div></div>
+            </div>
+            <div class="pill" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:#fff">
+              <div><strong>Real-time Systems</strong><div class="small" style="opacity:.9">Chat, notifications</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <div>
+            <h2>Select Expected User Scale</h2>
+            <div class="small muted" style="margin-top:6px">Infrastructure costs scale with user base and content volume.</div>
+          </div>
+        </div>
+
+        <div class="grid cols-4" style="margin-top:12px">
+          <button class="scale-btn" data-scale="small">
+            <div style="font-weight:900">Small Scale</div>
+            <div class="small muted">0-10K users</div>
+          </button>
+          <button class="scale-btn active" data-scale="medium">
+            <div style="font-weight:900">Medium Scale</div>
+            <div class="small muted">10K-100K users</div>
+          </button>
+          <button class="scale-btn" data-scale="large">
+            <div style="font-weight:900">Large Scale</div>
+            <div class="small muted">100K-500K users</div>
+          </button>
+          <button class="scale-btn" data-scale="enterprise">
+            <div style="font-weight:900">Enterprise Scale</div>
+            <div class="small muted">500K+ users</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <div>
+            <h2>Monthly Infrastructure Costs</h2>
+            <div class="small muted" id="scaleLabel" style="margin-top:6px"></div>
+          </div>
+          <button class="link-btn" id="toggleBreakdown" type="button">Show Breakdown</button>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:12px">
+          <div class="stat blue">
+            <div class="small" style="opacity:.9">Monthly Infrastructure</div>
+            <strong id="monthlyInfra">₹0</strong>
+            <div class="small" style="opacity:.9;margin-top:6px">Servers, DB, media CDN, monitoring</div>
+          </div>
+          <div class="stat purple">
+            <div class="small" style="opacity:.9">Annual Infrastructure</div>
+            <strong id="yearlyInfra">₹0</strong>
+            <div class="small" style="opacity:.9;margin-top:6px">Year 1 included in package</div>
+          </div>
+        </div>
+
+        <div id="breakdown" class="hide" style="margin-top:14px">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th style="width:160px">Monthly Cost</th>
+              </tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <div>
+            <h2>Development Cost</h2>
+            <div class="small muted" style="margin-top:6px">Calculated based on selected scale.</div>
+          </div>
+        </div>
+
+        <table style="margin-top:10px">
+          <tbody>
+            <tr>
+              <td><strong>Subtotal (Development)</strong></td>
+              <td style="text-align:right"><strong id="devSubtotal">₹0</strong></td>
+            </tr>
+            <tr>
+              <td class="muted">GST (18%)</td>
+              <td style="text-align:right" id="gst">₹0</td>
+            </tr>
+            <tr>
+              <td><strong>Total Development Cost</strong></td>
+              <td style="text-align:right"><strong style="color:var(--primary)" id="devTotal">₹0</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="border:none;background:linear-gradient(90deg,var(--primary),var(--primary2));color:#fff">
+        <div class="section-title">
+          <h2 style="margin:0">Year 1 Complete Investment</h2>
+        </div>
+        <div class="grid cols-3" style="margin-top:12px">
+          <div class="pill" style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.18);color:#fff">
+            <div>
+              <div class="small" style="opacity:.9">Development Cost</div>
+              <div style="font-size:22px;font-weight:900" id="year1Dev">₹0</div>
+            </div>
+          </div>
+          <div class="pill" style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.18);color:#fff">
+            <div>
+              <div class="small" style="opacity:.9">Year 1 Infrastructure</div>
+              <div style="font-size:22px;font-weight:900" id="year1Infra">₹0</div>
+            </div>
+          </div>
+          <div class="pill" style="background:rgba(255,255,255,.24);border-color:rgba(255,255,255,.35);color:#fff">
+            <div>
+              <div class="small" style="opacity:.95;font-weight:800">TOTAL YEAR 1</div>
+              <div style="font-size:26px;font-weight:1000" id="year1Total">₹0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pill" style="margin-top:12px;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.18);color:#fff">
+          <div style="width:100%">
+            <div style="font-weight:900;margin-bottom:10px">Payment Schedule</div>
+            <div class="grid cols-3">
+              <div><div class="small" style="opacity:.9">Advance (25%)</div><div style="font-weight:900" id="p25">₹0</div></div>
+              <div><div class="small" style="opacity:.9">Milestone (50%)</div><div style="font-weight:900" id="p50">₹0</div></div>
+              <div><div class="small" style="opacity:.9">On Delivery (25%)</div><div style="font-weight:900" id="p25b">₹0</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card cta">
+        <h2 style="margin:0 0 10px">Download / Print</h2>
+        <div class="muted" style="max-width:700px;margin:0 auto 14px;color:#cbd5e1">
+          Open this file directly in the browser. Click below to print or save as PDF.
+        </div>
+        <button type="button" id="printBtn">Print / Save PDF</button>
+        <div style="margin-top:14px" class="small" id="validTill"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const fmtINR = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+
+    const userScales = {
+      small: { name: 'Small Scale', users: '0-10K', multiplier: 1 },
+      medium: { name: 'Medium Scale', users: '10K-100K', multiplier: 1.5 },
+      large: { name: 'Large Scale', users: '100K-500K', multiplier: 2.2 },
+      enterprise: { name: 'Enterprise Scale', users: '500K+', multiplier: 3 }
+    };
+
+    const infraByScale = {
+      small: { Cloudinary: 14000, Gumlet: 8000, 'AWS Compute': 25000, 'Database (RDS)': 15000, Redis: 8000, Elasticsearch: 12000, CDN: 5000, Monitoring: 3000, Backup: 4000, Security: 5000 },
+      medium: { Cloudinary: 35000, Gumlet: 20000, 'AWS Compute': 60000, 'Database (RDS)': 35000, Redis: 18000, Elasticsearch: 28000, CDN: 12000, Monitoring: 8000, Backup: 10000, Security: 12000 },
+      large: { Cloudinary: 85000, Gumlet: 50000, 'AWS Compute': 150000, 'Database (RDS)': 80000, Redis: 40000, Elasticsearch: 60000, CDN: 30000, Monitoring: 18000, Backup: 25000, Security: 25000 },
+      enterprise: { Cloudinary: 180000, Gumlet: 120000, 'AWS Compute': 350000, 'Database (RDS)': 180000, Redis: 90000, Elasticsearch: 130000, CDN: 70000, Monitoring: 40000, Backup: 60000, Security: 50000 }
+    };
+
+    const baseDevelopmentCost = 1200000;
+    const gstRate = 0.18;
+
+    let currentScale = 'medium';
+
+    function render(){
+      const scale = userScales[currentScale];
+      const infra = infraByScale[currentScale];
+
+      const monthlyInfra = Object.values(infra).reduce((a,b)=>a+b,0);
+      const yearlyInfra = monthlyInfra * 12;
+
+      const developmentCost = baseDevelopmentCost * scale.multiplier;
+      const devWithGst = developmentCost * (1 + gstRate);
+      const year1Total = devWithGst + yearlyInfra;
+
+      document.getElementById('scaleLabel').textContent = `For ${scale.name} (${scale.users} users)`;
+      document.getElementById('monthlyInfra').textContent = fmtINR(monthlyInfra);
+      document.getElementById('yearlyInfra').textContent = fmtINR(yearlyInfra);
+
+      document.getElementById('devSubtotal').textContent = fmtINR(developmentCost);
+      document.getElementById('gst').textContent = fmtINR(developmentCost * gstRate);
+      document.getElementById('devTotal').textContent = fmtINR(devWithGst);
+
+      document.getElementById('year1Dev').textContent = fmtINR(devWithGst);
+      document.getElementById('year1Infra').textContent = fmtINR(yearlyInfra);
+      document.getElementById('year1Total').textContent = fmtINR(year1Total);
+
+      document.getElementById('p25').textContent = fmtINR(devWithGst * 0.25);
+      document.getElementById('p50').textContent = fmtINR(devWithGst * 0.50);
+      document.getElementById('p25b').textContent = fmtINR(devWithGst * 0.25);
+
+      const tbody = document.getElementById('breakdownBody');
+      tbody.innerHTML = '';
+      for (const [k,v] of Object.entries(infra)){
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${k}</td><td style="text-align:right"><strong>${fmtINR(v)}</strong></td>`;
+        tbody.appendChild(tr);
+      }
+    }
+
+    document.getElementById('today').textContent = new Date().toLocaleDateString('en-IN');
+    document.getElementById('validTill').textContent = `Quotation valid for 45 days from ${new Date().toLocaleDateString('en-IN')}`;
+
+    document.querySelectorAll('.scale-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentScale = btn.getAttribute('data-scale');
+        document.querySelectorAll('.scale-btn').forEach(b => b.classList.toggle('active', b === btn));
+        render();
+      });
+    });
+
+    const breakdown = document.getElementById('breakdown');
+    const toggleBreakdown = document.getElementById('toggleBreakdown');
+    toggleBreakdown.addEventListener('click', () => {
+      const open = breakdown.classList.toggle('hide') === false;
+      toggleBreakdown.textContent = open ? 'Hide Breakdown' : 'Show Breakdown';
+    });
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    render();
+  </script>
+</body>
+</html>
